@@ -1,0 +1,39 @@
+{
+  "name": "create-yzc-app",
+  "version": "1.0.2",
+  "description": "create a yzc app project with gitlab template",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "create-yzc-app": "index.js"
+  },
+  "scripts": {
+    "dev": "unbuild --stub & node ./dist/index.mjs",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "git clone http://gitlab.ahyzc.com/yzc-public-tools/template-mobile.git",
+    "prepublishOnly": "npm run build & npm version patch"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.uzhicai.com/repository/npm-hosted/"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/prompts": "^2.4.9",
+    "cross-spawn": "^7.0.3",
+    "esbuild": "^0.24.0",
+    "minimist": "^1.2.8",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2",
+    "unbuild": "^2.0.0"
+  },
+  "resolutions": {
+    "esbuild": "0.24.0"
+  }
+}
